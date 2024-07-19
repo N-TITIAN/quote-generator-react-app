@@ -41,8 +41,8 @@ function App() {
     setAuthor(randomQuote.author);
   };
  useEffect(() => {
-  fetchNewQuote();
-}, []);
+   fetchNewQuote();
+ }, [fetchNewQuote]);
 
   return (
     <div className="App">
