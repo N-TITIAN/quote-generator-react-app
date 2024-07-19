@@ -41,8 +41,10 @@ function App() {
     setAuthor(randomQuote.author);
   };
  useEffect(() => {
-   fetchNewQuote();
- }, [fetchNewQuote]);
+  fetchNewQuote();
+},
+// eslint-disable-next-line 
+[]);
 
   return (
     <div className="App">
