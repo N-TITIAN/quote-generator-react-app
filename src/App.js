@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+
 import './App.css';
 import NewQuoteButton from './components/NewQuoteButton';
 import Quote from './components/Quote';
