@@ -1,22 +1,55 @@
 import logo from './logo.svg';
 import './App.css';
+import NewQuoteButton from './components/NewQuoteButton';
+import Quote from './components/Quote';
+import { useState } from 'react';
+import { useEffect } from 'react';
+
+//array definition 
+const quotes = [
+  {
+    quote: "The best way to predict the future is to create it.",
+    author: "Abraham Lincoln"
+    },
+    {
+      quote: "life is a spoon",
+      author: " Ndifon"
+      },
+      {
+        quote: "give up",
+        author: "Titiana"
+        },
+        {
+          quote: "pray pray",
+          author: "Abraham "
+          },
+]
+
 
 function App() {
+  const [quote, setQuote] = useState("");
+  const [author, setAuthor] = useState("");
+
+  //function to select random quotes
+  const selectRandomQuote = () => {
+    const randomIndex = Math.floor(Math.random() * quotes.length);
+    return quotes[randomIndex];
+  };
+  const fetchNewQuote = () => {
+    const randomQuote = selectRandomQuote();
+    setQuote(randomQuote.quote);
+    setAuthor(randomQuote.author);
+  };
+ useEffect(() => {
+  fetchNewQuote();
+}, []);
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h1>Quote Generator with React</h1>
+        <Quote quote={quote} author={author} />
+        <NewQuoteButton fetchNewQuote={fetchNewQuote} />
       </header>
     </div>
   );

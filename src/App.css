@@ -36,3 +36,14 @@
     transform: rotate(360deg);
   }
 }
+.quote-button{
+  background-color: #61dafb;
+  border: none;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+.quote-button:hover{
+  background-color:#282c34;
+  color: #61dafb;
+
+}
